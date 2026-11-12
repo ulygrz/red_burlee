@@ -1,0 +1,27 @@
+{
+  "name": "BALA2 — Isaac Lab cloud GPU (headless only)",
+  "image": "nvcr.io/nvidia/isaac-lab:2.3.2",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/bala2-rl,type=bind",
+  "workspaceFolder": "/workspaces/bala2-rl",
+  "remoteUser": "root",
+  "overrideCommand": true,
+  "runArgs": ["--gpus=all", "--shm-size=8g"],
+  "containerEnv": {
+    "ACCEPT_EULA": "${localEnv:ACCEPT_EULA}",
+    "PRIVACY_CONSENT": "${localEnv:PRIVACY_CONSENT}",
+    "NVIDIA_DRIVER_CAPABILITIES": "compute,utility,graphics"
+  },
+  "mounts": [
+    "source=bala2-isaac-kit-cache,target=/isaac-sim/kit/cache,type=volume",
+    "source=bala2-isaac-ov-cache,target=/root/.cache/ov,type=volume",
+    "source=bala2-isaac-gl-cache,target=/root/.cache/nvidia/GLCache,type=volume",
+    "source=bala2-isaac-compute-cache,target=/root/.nv/ComputeCache,type=volume"
+  ],
+  "forwardPorts": [6006],
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python", "ms-vscode.cpptools"]
+    }
+  },
+  "postCreateCommand": "nvidia-smi"
+}

@@ -1,0 +1,69 @@
+<?xml version="1.0" ?>
+<robot name="bala2-fire-simplified" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find bala2-fire-simplified_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find bala2-fire-simplified_description)/urdf/bala2-fire-simplified.trans" />
+<xacro:include filename="$(find bala2-fire-simplified_description)/urdf/bala2-fire-simplified.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="9.27245497634832e-18 1.3908682464522482e-17 0.02347841972166959" rpy="0 0 0"/>
+    <mass value="0.9624653647724125"/>
+    <inertia ixx="0.000373" iyy="0.00039" izz="0.000445" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bala2-fire-simplified_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bala2-fire-simplified_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="old_component__1__1">
+  <inertial>
+    <origin xyz="0.013000000000000001 9.928023148357387e-18 1.489203472253608e-17" rpy="0 0 0"/>
+    <mass value="0.22472793998832039"/>
+    <inertia ixx="5.7e-05" iyy="3.5e-05" izz="3.5e-05" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.027 -0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bala2-fire-simplified_description)/meshes/old_component__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.027 -0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bala2-fire-simplified_description)/meshes/old_component__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="old_component__2__1">
+  <inertial>
+    <origin xyz="-0.013000000000000008 9.928023148357387e-18 1.489203472253608e-17" rpy="0 0 0"/>
+    <mass value="0.22472793998832039"/>
+    <inertia ixx="5.7e-05" iyy="3.5e-05" izz="3.5e-05" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.027 -0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bala2-fire-simplified_description)/meshes/old_component__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.027 -0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bala2-fire-simplified_description)/meshes/old_component__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+

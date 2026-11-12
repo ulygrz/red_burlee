@@ -1,0 +1,18 @@
+{
+    "name": "BALA2 - Firmware build / release tools",
+    "build": {
+        "dockerfile": "../../container/Dockerfile",
+        "context": "../..",
+        "target": "firmware"
+    },
+    "workspaceMount": "source={localWorkspaceFolder}, target=/workspaces/bala2-rl,type=bind",
+    "workspaceFolder": "workspaces/bala2-rl",
+    "remoteUser": "developer",
+    "customizations": {
+        "vscode": {
+            "extensions": ["ms-vscode.cpptools", "ms-vscode.cmake-tools", "ms-python.python"],
+            "settings": {"python.defaultInterpreterPath": "/opt/venv/bin/python"}
+        }
+    },
+    "postCreateCommand": "python -m pip check && pio --version"
+}

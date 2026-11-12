@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mujoco model="red_burlee">
+    <compiler angle="radian"
+                coordinate="local"
+                meshdir="meshes"
+                autolimits="true"/>
+    
+    <option timestep="0.05"
+            gravity="0 0 -9.81"
+            integrator= "implicitfast"/>
+    
+    <default>
+        <geom contype="1" 
+            conaffinity="1"
+            friction="0.8 0.005 0.0001"/>
+    </default>
+
+    <asset>
+        <mesh name="base_link" 
+            file="file://$(find bala2-fire-simplified_description)/meshes/base_link.stl"
+            scale="0.001 0.001 0.001"/>
+        <mesh name="wheel_right" 
+            file="file://$(find bala2-fire-simplified_description)/meshes/wheel_right_1_1.stl"
+            scale="0.001 0.001 0.001"/>
+        <mesh name="wheel_left" 
+            file="file://$(find bala2-fire-simplified_description)/meshes/wheel_left_1_1.stl"
+            scale="0.001 0.001 0.001"/>
+        
+        <texture type="skybox"
+                builtin="gradient"
+                rgb1="0.5 0.7 1"
+                rgb2="0.95 0.95 1"
+                width="256"
+                height="256"/>
+
+        <texture name="grid"
+                type="2d"
+                builtin="checker"
+                rgb1="0.2 0.3 0.4"
+                rgb2="0.3 0.4 0.5"
+                width="512"
+                height="512"
+                mark="cross"
+                markrgb="0.8 0.8 0.8"/>
+
+        <material name="grid"
+                texture="grid"
+                texrepeat="5 5"
+                reflectance="0"
+                specular="0"
+                shininess="0"/>
+    </asset>
+
+<!-- World and robot bodies -->
+
+    <worldbody>
+
+        <light pos="0 0 5" dir="0 0 -1" diffuse="1 1 1" />
+        <geom name="ground" type="plane" size="5 5 0.1" material="grid"/>
+
+        <body name="base" pos="0 0 0.225">
+
+            <freejoint name="root"/>
+            <geom name="base_geom" type="mesh" mesh="base_link" rgba="0.87 0.23 0.1 1.0"/>
+            <inertial pos="0.010485768801521564 -0.0018516108141509158 0.025729756326146033"
+                    mass=""
+                    diaginertia="0.000477 0.000501 0.000532"/>
+            <site name="imu_site" type="box" pos="-0.008 0.0225 0.040" size="0.003 0.003 0.00035" rgba= "0 0 0 1.0 1.0"/>
+            <geom type="box" size="0.001 0.01 0.005" pos="-0.027 0 0.02" rgba="0 1.0 0 1.0" contype="1" conaffinity="0"/>
+        
+        <body name="wheel_right" pos="0 0.04 0">
+
+    <actuator>
+        <motor joint="joint1" ctrlrange="-1 1"/>
+    </actuator>
+</mujoco>

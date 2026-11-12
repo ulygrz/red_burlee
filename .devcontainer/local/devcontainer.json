@@ -1,0 +1,20 @@
+{
+  "name": "BALA2 — Local development (CPU, headless)",
+  "build": {
+    "dockerfile": "../../containers/Dockerfile",
+    "context": "../..",
+    "target": "development"
+  },
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/bala2-rl,type=bind",
+  "workspaceFolder": "/workspaces/bala2-rl",
+  "remoteUser": "developer",
+  "runArgs": ["--shm-size=2g"],
+  "forwardPorts": [6006, 8000],
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python", "ms-python.vscode-pylance", "ms-vscode.cpptools", "charliermarsh.ruff"],
+      "settings": {"python.defaultInterpreterPath": "/opt/venv/bin/python"}
+    }
+  },
+  "postCreateCommand": "python -m pip check && python tools/check_sim.py"
+}

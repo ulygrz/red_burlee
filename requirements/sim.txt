@@ -1,0 +1,9 @@
+# Shared direct pins for native macOS and headless local Linux.
+# Isaac Lab must use the dependencies supplied by its own image.
+numpy==2.2.6
+mujoco==3.7.0
+gymnasium==1.2.3
+torch==2.11.0
+stable-baselines3==2.9.0
+tensorboard==2.20.0
+matplotlib==3.10.8

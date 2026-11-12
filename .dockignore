@@ -1,0 +1,13 @@
+.git
+.venv*
+**/.pio
+**/__pycache__
+**/.pytest_cache
+**/.ruff_cache
+logs
+runs
+recordings
+artifacts
+.env
+.env.*
+!.env.example

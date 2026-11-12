@@ -1,0 +1,13 @@
+.venv*/
+**/__pycache__/
+**/.pio/
+.pytest_cache/
+.ruff_cache/
+logs/
+runs/
+recordings/
+artifacts/
+.DS_Store
+.env
+.env.*
+!.env.example
